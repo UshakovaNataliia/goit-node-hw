@@ -1,0 +1,27 @@
+{
+  "name": "goit-node-hw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node",
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UshakovaNataliia/goit-node-hw.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UshakovaNataliia/goit-node-hw/issues"
+  },
+  "homepage": "https://github.com/UshakovaNataliia/goit-node-hw#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nanoid": "^3.1.20",
+    "yargs": "^16.2.0"
+  }
+}
