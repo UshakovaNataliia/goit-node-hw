@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { listContacts, validateContact, getById, validateCreateContact, validateUpdateContact, updateContacts, removeContact, addContact } = require('../controllers/contactsController');
+const { listContacts, validateContactId, getById, validateCreateContact, validateUpdateContact, updateContacts, removeContact, addContact } = require('../controllers/contactsController');
 
 const router = Router();
 router.get('/', listContacts);

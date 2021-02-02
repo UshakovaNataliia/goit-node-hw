@@ -56,7 +56,7 @@ class ContactsController {
     res.status(201).send(updatedContact);
   };
 
-  validateContact(req, res, next) {
+  validateContactId(req, res, next) {
     const {
       params: { contactId },
     } = req;
