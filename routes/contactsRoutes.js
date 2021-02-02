@@ -3,9 +3,9 @@ const { listContacts, validateContactId, getById, validateCreateContact, validat
 
 const router = Router();
 router.get('/', listContacts);
-router.get('/:contactId', validateContact, getById);
+router.get('/:contactId', validateContactId, getById);
 router.post('/', validateCreateContact, addContact);
-router.delete('/:contactId', validateContact, removeContact);
-router.patch('/:contactId', validateContact, validateUpdateContact, updateContacts);
+router.delete('/:contactId', validateContactId, removeContact);
+router.patch('/:contactId', validateContactId, validateUpdateContact, updateContacts);
 
 module.exports = router;
