@@ -1,8 +1,10 @@
-const express = require('express');
+onst express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const { contactsRouter } = require('./contacts/contactRouter');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { routerAuth } = require('./auth/authRouter');
+const { userRouter } = require('./user/usersRouter');
 require('dotenv').config({ path: path.join(__dirname, "../.env") });
 exports.CrudServer = class {
     constructor() {
@@ -25,7 +27,8 @@ exports.CrudServer = class {
                 {
                     useNewUrlParser: true,
                     useUnifiedTopology: true,
-                    useFindAndModify: false
+                    useFindAndModify: false,
+                    useCreateIndex: true
                 })
             console.log('Database connection successful');
         } catch (error) {
@@ -39,6 +42,9 @@ exports.CrudServer = class {
     }
     initRoutes() {
         this.app.use('/contacts', contactsRouter)
+        this.app.use('/auth', routerAuth)
+        this.app.use('/users', userRouter)
+
     }
     initErrorHandler() {
         this.app.use((err, req, res, next) => {
