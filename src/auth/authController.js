@@ -2,6 +2,7 @@ const { Conflict, Unauthorized, NotFound } = require("../helpers/errors")
 const UserModel = require("../user/userModel")
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken")
+const { avatarCreate } = require('../helpers/avatarGenerator')
 exports.register = async (req, res, next) => {
     try {
         const { email, password } = req.body
@@ -9,9 +10,11 @@ exports.register = async (req, res, next) => {
         if (existingUser) {
             throw new Conflict('user with such email already exist')
         }
+        const avatarName = await avatarCreate();
+        const avatarURL = `http://localhost:${process.env.PORT}/images/${avatarName}`;
         const hashPassword = await bcrypt.hash(password, Number(process.env.SALT_ROUNDS))
-        const newUser = await UserModel.create({ email, password: hashPassword })
-        res.status(201).send({ subscription: newUser.subscription, email: newUser.email, })
+        const newUser = await UserModel.create({ email, password: hashPassword, avatarURL })
+        res.status(201).send({ subscription: newUser.subscription, email: newUser.email, avatarURL })
     } catch (error) {
         next(error)
     }
