@@ -1,5 +1,5 @@
 {
-  "name": "03-mondodb",
+  "name": "04-auth",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,11 +23,12 @@
     "nodemon": "^2.0.7"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "joi": "^17.3.0",
     "joi-objectid": "^3.0.1",
-    "lint-staged": "^10.5.4",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.15",
     "morgan": "^1.10.0"
   }
