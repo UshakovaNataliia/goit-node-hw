@@ -1,4 +1,4 @@
-onst express = require('express');
+const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const { contactsRouter } = require('./contacts/contactRouter');
@@ -19,7 +19,8 @@ exports.CrudServer = class {
         this.startListening();
     }
     initServer() {
-        this.app = express()
+        this.app = express();
+        this.app.use("/images", express.static(__dirname + '/public/images'))
     }
     async initDataBase() {
         try {
@@ -44,7 +45,6 @@ exports.CrudServer = class {
         this.app.use('/contacts', contactsRouter)
         this.app.use('/auth', routerAuth)
         this.app.use('/users', userRouter)
-
     }
     initErrorHandler() {
         this.app.use((err, req, res, next) => {

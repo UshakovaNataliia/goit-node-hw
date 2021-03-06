@@ -3,6 +3,7 @@ const { authorize } = require('../helpers/authorizeMiddleware');
 const { validate } = require('../helpers/validateMiddleware');
 const { createUserSchema, loginSchema } = require('../user/userSchemes');
 const { register, login, logout } = require('./authController');
+const { imageCreator } = require('../helpers/imageCreator');
 const router = Router()
 
 router.post('/register', validate(createUserSchema), register)
