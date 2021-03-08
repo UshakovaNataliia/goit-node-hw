@@ -1,4 +1,3 @@
-  
 const { Unauthorized } = require("../helpers/errors");
 const UserModel = require("./userModel");
 

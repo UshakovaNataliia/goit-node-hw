@@ -10,6 +10,7 @@ const userScheme = new Schema({
         default: "free",
     },
     token: { type: String, default: "" },
+    verificationToken: { type: String, required: false }
 });
 const UserModel = mongoose.model("User", userScheme);
 module.exports = UserModel;

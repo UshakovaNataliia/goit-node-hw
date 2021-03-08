@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const { authorize } = require('../helpers/authorizeMiddleware')
-const { getCurretUser } = require('./usersController')
+const { getCurretUser, avatar } = require('./usersController')
 const { imageCreator } = require('../helpers/imageCreator')
 const router = Router()
 
